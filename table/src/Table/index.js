@@ -1,25 +1,47 @@
 import React from 'react'
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import styles from './style.css';
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
 
-const Container = styled.div`
-  border: 1px solid black;
-  background: gray;
-  padding: 16px;
-`
 
-class Table extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+export default class Table extends React.Component {
+  propTypes = {
+    rows: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired,
+  }
+
+  state = {
+    next: null,
+    sortType: null,
+    rows: null
+  }
+
+  sort = () => {
+    const { sortType } = this.state;
+    if (sortType) {
+      this.props.rows.sort((a, b) => {
+        return a[sortType] - b[sortType];
+      })
+    }
+  }
+
+  onHeaderClick = (e, colName) => {
+    // set the sort type then sort
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount - props: ', this.props);
   }
 
   render() {
+    console.log('STYLE: ', styles);
     return (
-      <Container>
-        I'm not a table yet, pls fix me
-      </Container>
+      <table className={styles.Table} >
+        <tr>hello</tr>
+        {/* <TableHeader />
+        <TableBody /> */}
+      </table>
     );
   }
 }
-
-export default Table;
