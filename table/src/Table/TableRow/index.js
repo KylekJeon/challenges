@@ -1,10 +1,9 @@
 import React from 'react';
 
-const TableRow = (row, column) => {
-  console.log(this.props);
+const TableRow = (props) => {
   return (
     <tr>
-      {this.props.children}
+      {props.children}
     </tr>
   );
 }
