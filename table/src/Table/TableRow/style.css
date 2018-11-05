@@ -1,0 +1,5 @@
+.row {
+  height: 45px;
+  padding: 10px;
+  border-bottom: rgba(0,0,0, 0.2) solid 1px;
+}

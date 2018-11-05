@@ -6,7 +6,7 @@ interface TableCellProps extends Props<void> {
 
 const TableCell: StatelessComponent<TableCellProps> = function TableCell({ data }) {
   return (
-    <td>
+    <td className="row">
       {data}
     </td>
   )

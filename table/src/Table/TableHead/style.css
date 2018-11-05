@@ -1,0 +1,22 @@
+th {
+  padding: 10px;
+  cursor: pointer;
+}
+
+th.selected {
+  color: #5e3ad7;
+}
+
+th.selected .head span {
+  visibility: visible;
+}
+
+th .head {
+  display: flex;
+  align-items: center;
+}
+
+th .head span {
+  visibility: hidden;
+  padding-left: 5px;
+}

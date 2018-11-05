@@ -7,3 +7,9 @@ export interface Row {
   created: string;
   edited: string;
 }
+
+export interface Column {
+  name: string;
+  selected: boolean;
+  isAscending: boolean;
+}
