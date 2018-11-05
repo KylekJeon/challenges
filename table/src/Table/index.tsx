@@ -1,22 +1,23 @@
 import React from 'react'
+import camelize from 'camelize';
 import './style.css';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
-import {isEmpty, pick} from 'lodash';
+import { pick, isNull } from 'lodash';
 
 export default class Table extends React.Component {
   state = {
     rows: null,
     columns: null,
-    validHeaders: ['name', 'height', 'hair_color', 'eye_color', 'created', 'edited'],
-    isAscending: false,
+    validHeaders: ['name', 'height', 'hairColor', 'eyeColor', 'created', 'edited'],
+    isAscending: true,
   }
 
   fetchData = () => {
     return fetch('/api/people');
   }
 
-  processFetchData = data => {
+  processFetchData = (data) => {
     const results = data.results;
     return results.map(result => {
       result.created = new Date(result.created).toLocaleDateString();
@@ -27,9 +28,10 @@ export default class Table extends React.Component {
 
   componentDidMount() {
     // fetch data if rows and cols are not there
-    if (!this.state.rows && !this.state.cols) {
+    if (!this.state.rows && !this.state.columns) {
       this.fetchData()
       .then(resp => resp.json())
+      .then(data => camelize(data))
       .then(data => {
         const processedData = this.processFetchData(data);
         const columns  = Object.keys(processedData[0]);
@@ -43,9 +45,9 @@ export default class Table extends React.Component {
     }
   }
 
-  onHeaderClick = (e, colName) => {
+  onHeaderClick = (colName: string) => {
     // sort by the colName
-    this.setState(prev => {
+    this.setState((prev: any) => {
       return {
         isAscending: !prev.isAscending, 
         rows: prev.rows.sort((a, b) => {
@@ -71,7 +73,7 @@ export default class Table extends React.Component {
       columns,
       rows,
     } = this.state;
-    const hasData = rows && columns;
+    const hasData = !isNull(rows) && !isNull(columns);
     return hasData ? (
       <table className="table" >
         <TableHeader columns={columns} onHeaderClick={this.onHeaderClick} />

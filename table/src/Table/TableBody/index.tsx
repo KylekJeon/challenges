@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { StatelessComponent, Props } from 'react';
+import { Row } from '../../types/table'; 
 import TableRow from '../TableRow';
 import TableCell from '../TableCell';
 
-// rows is an array of objects that is paired with the column
-const TableBody = props => {
-  const rows = props.rows;
+interface TableBodyProps extends Props<void> {
+  rows: Row[];
+}
+
+const TableBody: StatelessComponent<TableBodyProps> = function TableBody({
+  rows,
+}) {
   return (
     <tbody>
       {
