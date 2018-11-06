@@ -1,0 +1,10 @@
+Architectural Decisions:
+ - Forgoing Redux: I acknowledge that this exercise is a good use case for using Redux since there is a single state that is being managed here, but I think that the application is small enough that we don't need the boilerplate that comes with Redux. Local state is fine in this case. 
+
+ - Introducing Typescript: It helps to clean up my code and makes it harder to break stuff. The ability to declare properties on components and have the linter enforce those declarations is pretty powerful.
+
+ - Ducks Structure: I find this to be a more intuitive way to organize the directories of an application. All styles and tests are found in the component directory that they belong to. 
+
+ - No Context: I decided not to introduce context in this exercise even thought the use case here would be simple enough. As an application grows, the use of context can get pretty magic-y and can make it harder for an engineer to keep track of its origin. 
+
+ - Testing: For the sake of time I only added tests and 100% code coverage to the most important part of the application which is the Table component. Since it manages state and declares the click handlers, it made sense to test the component's funcitonality. The other components are pure stateless functions that only render the props that are given to them. If I had more time to do the tests, I would provide snapshot tests to check for consistency across functional changes and to make code coverage of the entire application to be 100%. 
