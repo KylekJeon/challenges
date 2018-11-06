@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should render loader with no data 1`] = `
+<div
+  className="loading"
+>
+  Loading...
+</div>
+`;
+
+exports[`Table should render table with data 1`] = `
+<table
+  className="table"
+>
+  <TableHeader
+    columns={
+      Array [
+        Object {
+          "isAscending": false,
+          "name": "name",
+          "selected": false,
+        },
+        Object {
+          "isAscending": false,
+          "name": "height",
+          "selected": false,
+        },
+        Object {
+          "isAscending": false,
+          "name": "hairColor",
+          "selected": false,
+        },
+        Object {
+          "isAscending": false,
+          "name": "eyeColor",
+          "selected": false,
+        },
+        Object {
+          "isAscending": false,
+          "name": "created",
+          "selected": false,
+        },
+        Object {
+          "isAscending": false,
+          "name": "edited",
+          "selected": false,
+        },
+      ]
+    }
+    onHeaderClick={[Function]}
+  />
+  <TableBody
+    rows={
+      Array [
+        Object {
+          "created": "12/9/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "blue",
+          "hairColor": "blond",
+          "height": 172,
+          "name": "Luke Skywalker",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "yellow",
+          "hairColor": "n/a",
+          "height": 167,
+          "name": "C-3PO",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "red",
+          "hairColor": "n/a",
+          "height": 96,
+          "name": "R2-D2",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "yellow",
+          "hairColor": "none",
+          "height": 202,
+          "name": "Darth Vader",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "brown",
+          "hairColor": "brown",
+          "height": 150,
+          "name": "Leia Organa",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "blue",
+          "hairColor": "brown, grey",
+          "height": 178,
+          "name": "Owen Lars",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "blue",
+          "hairColor": "brown",
+          "height": 165,
+          "name": "Beru Whitesun lars",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "red",
+          "hairColor": "n/a",
+          "height": 97,
+          "name": "R5-D4",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "brown",
+          "hairColor": "black",
+          "height": 183,
+          "name": "Biggs Darklighter",
+        },
+        Object {
+          "created": "12/10/2014",
+          "edited": "12/20/2014",
+          "eyeColor": "blue-gray",
+          "hairColor": "auburn, white",
+          "height": 182,
+          "name": "Obi-Wan Kenobi",
+        },
+      ]
+    }
+  />
+</table>
+`;

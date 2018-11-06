@@ -7,7 +7,7 @@ import { pick, isNull, find, uniqBy } from "lodash";
 import { Column } from "../types/table";
 
 export default class Table extends React.Component {
-  state = {
+  public state = {
     rows: null,
     columns: null,
     validHeaders: [
@@ -64,24 +64,22 @@ export default class Table extends React.Component {
   };
 
   public componentDidMount() {
-    // fetch data if rows and cols are not there
-    if (!this.state.rows && !this.state.columns) {
-      this.fetchData()
-        .then(resp => resp.json())
-        .then(data => camelize(data))
-        .then(data => {
-          const processedData = this.processFetchData(data);
-          const columns = Object.keys(processedData[0]).map(key => {
-            return { name: key, selected: false, isAscending: false };
-          });
-          const rows = processedData;
-
-          this.setState({
-            columns,
-            rows
-          });
+    // fetch data since rows and cols are not there yet
+    this.fetchData()
+      .then(resp => resp.json())
+      .then(data => camelize(data))
+      .then(data => {
+        const processedData = this.processFetchData(data);
+        const columns = Object.keys(processedData[0]).map(key => {
+          return { name: key, selected: false, isAscending: false };
         });
-    }
+        const rows = processedData;
+
+        this.setState({
+          columns,
+          rows
+        });
+      });
   }
 
   public render() {
