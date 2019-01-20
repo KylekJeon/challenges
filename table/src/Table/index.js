@@ -95,7 +95,7 @@ class Table extends React.Component {
         nextUrl: parsedRes.next,
         dataReady: true,
         memoizedContent: {
-          [0]: dataArray
+          0: dataArray
         }
       })
     })
@@ -297,12 +297,12 @@ class Table extends React.Component {
     
     if(this.state.pageIdx > 0){
       prevButton = (
-        <Button onClick={this.prevHandler}>Prev</Button>
+        <Button data-test="prev-button" onClick={this.prevHandler}>Prev</Button>
       )
     }
     if(this.state.pageIdx < this.state.lastPageIdx){
       nextButton = (
-        <Button onClick={this.nextHandler}>Next</Button>
+        <Button data-test="next-button" onClick={this.nextHandler}>Next</Button>
       )
     }
 
